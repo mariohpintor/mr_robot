@@ -1,0 +1,21 @@
+#include <iostream>
+
+using namespace std;
+
+int ackerman(int n, int m) {
+  if (n == 0) {
+    return m + 1;
+  } else if (n > 0 && m == 0) {
+    return ackerman(n - 1, 1);
+  } else if (n > 0 && m > 0) {
+    return ackerman(n - 1, ackerman(n, m - 1));
+  }
+  return -1;
+}
+
+int main() {
+  int n, m;
+  cin >> n >> m;
+  cout << ackerman(n, m) << endl;
+  return 0;
+}

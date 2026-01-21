@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
 #include <vector>
 
@@ -45,10 +46,38 @@ float *MinSubarray(float array[], int n) {
   return subarray;
 }
 
+float *MinSubarray2(float array[], int n) {
+  int num_negativos = 0;
+  float max_negativo = -INFINITY;
+  int index = -1;
+  float *subarray = new float[n];
+  for (int i = 0; i < n; i++) subarray[i] = 0;
+
+  for (int i = 0; i < n; i++) {
+    if (array[i] < 0) {
+      num_negativos++;
+      if (array[i] >= max_negativo) {
+        max_negativo = array[i];
+        index = i;
+      }
+    }
+    if (array[i] != 0) {
+      subarray[i] = array[i];
+    }
+  }
+  if (num_negativos % 2 == 0) {
+    subarray[index] = 0;
+  }
+  return subarray;
+}
+
 int main() {
   // Arreglo estático de prueba
-  float array[7] = {-1, 9, -8, -2, 0, 5, -10};
-  int n = 7;
+  //float array[7] = {-1, 9, -8, -2, 0, 5, -10};
+  //int n = 7;
+
+  float array[8] = {-3, 9, -8,0, -2, 0, 5, -10};
+  int n = 8;
 
   cout << "Arreglo original: " << endl;
   for (int i = 0; i < n; i++) {
@@ -56,7 +85,7 @@ int main() {
   }
   cout << endl;
 
-  float *subarray = MinSubarray(array, n);
+  float *subarray = MinSubarray2(array, n);
 
   cout << "Subarray procesado (minimo producto posible): " << endl;
   for (int i = 0; i < n; i++) {

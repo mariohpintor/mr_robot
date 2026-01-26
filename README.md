@@ -6,8 +6,10 @@ mrrobot/2024/problema_1.cpp
 
 mrrobot/2024/problema_2.cpp 
 
-mrrobot/2024/problema_3.cpp 
+...
 
-mrrobot/2024/problema_4.cpp 
+[examen 2023](https://pcc.cimat.mx/sites/default/files/PCC/Examenes/Examen_Programacion_MCC_2023.pdf "examen 2024")
 
-mrrobot/2024/problema_5.cpp 
+mrrobot/2023/problema_1.cpp 
+...
+ 
